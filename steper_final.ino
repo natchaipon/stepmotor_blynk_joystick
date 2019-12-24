@@ -30,11 +30,9 @@ void myTimerEvent() {
   if (read_on_off == 1 && state == 0) {
     if (count_button == 1) {
       digitalWrite(D6 , 0);
-      //      Serial.println("1111");
     }
     else if (count_button == 2) {
       digitalWrite(D6 , 1);
-      //      Serial.println("2222");
       count_button = 0;
     }
     count_button++;
@@ -56,11 +54,9 @@ void myTimerEvent() {
   if (read_left_right == 0 && state_ == 0) {
     if (count_button_ == 1) {
       switch_left_right = 0;
-      //      Serial.println("1111");
     }
     else if (count_button_ == 2) {
       switch_left_right = 1;
-      //      Serial.println("2222");
       count_button_ = 0;
     }
     count_button_++;
@@ -93,7 +89,6 @@ BLYNK_WRITE(V2) {
 void setup() {
   Serial.begin(9600);
   Blynk.begin(auth , ssid , pass);
-  //  Blynk.begin(auth, ssid, pass, "blynk.honey.co.th", 8080);
   pinMode(D1 , OUTPUT);
   pinMode(D2 , OUTPUT);
   pinMode(D6 , OUTPUT);
@@ -117,5 +112,4 @@ void loop() {
   digitalWrite(D1 , 0);
   delayMicroseconds(speed_control);
   digitalWrite(D2 , switch_left_right);
-
 }
